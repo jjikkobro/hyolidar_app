@@ -1,0 +1,15 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="wrapper" style="text-align: center; padding-top: 20px;">
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'home:home' %}" class="btn btn-primary">집</a></p>
+        <p><a href="{% url 'common:logout' %}" class="btn btn-primary">로그아웃</a></p>
+    {% else %}
+        <p><a href="{% url 'common:login' %}" class="btn btn-primary">로그인</a></p>
+        <p><a href="{% url 'common:signup' %}" class="btn btn-primary">회원가입</a></p>
+    {% endif %}
+</div>
+{% endblock %}
